@@ -1,5 +1,3 @@
-from curses import KEY_ENTER
-from curses.ascii import TAB
 import random # For generating random numbers
 import sys # We will use sys.exit to exit the program
 import pygame
@@ -13,17 +11,19 @@ SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
 GROUNDY = SCREENHEIGHT * 0.8
 GAME_SPRITES = {}
 GAME_SOUNDS = {}
-PLAYER = '/home/ansh/Desktop/python_tests/flappy/gallery/sprites/bird.png'
-BACKGROUND = '/home/ansh/Desktop/python_tests/flappy/gallery/sprites/bg.png'
-PIPE = '/home/ansh/Desktop/python_tests/flappy/gallery/sprites/pipe.png'
+PLAYER = '/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/bird.png'
+BACKGROUND = '/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/bg.png'
+PIPE = '/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/pipe.png'
 
 def welcomeScreen():
     """
     Shows welcome images on the screen
     """
 
+    playerx = int(SCREENWIDTH/5)
+    playery = int((SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2)
     messagex = int((SCREENWIDTH - GAME_SPRITES['message'].get_width())/2)
-    messagey = int(SCREENHEIGHT*0.3)
+    messagey = int(SCREENHEIGHT*0.13)
     basex = 0
     while True:
         for event in pygame.event.get():
@@ -37,6 +37,7 @@ def welcomeScreen():
                 return
             else:
                 SCREEN.blit(GAME_SPRITES['background'], (0, 0))    
+                SCREEN.blit(GAME_SPRITES['player'], (playerx, playery))    
                 SCREEN.blit(GAME_SPRITES['message'], (messagex,messagey ))    
                 SCREEN.blit(GAME_SPRITES['base'], (basex, GROUNDY))    
                 pygame.display.update()
@@ -57,13 +58,11 @@ def mainGame():
         {'x': SCREENWIDTH+200, 'y':newPipe1[0]['y']},
         {'x': SCREENWIDTH+200+(SCREENWIDTH/2), 'y':newPipe2[0]['y']},
     ]
-
     # my List of lower pipes
     lowerPipes = [
         {'x': SCREENWIDTH+200, 'y':newPipe1[1]['y']},
         {'x': SCREENWIDTH+200+(SCREENWIDTH/2), 'y':newPipe2[1]['y']},
     ]
-
 
     pipeVelX = -4
 
@@ -74,6 +73,7 @@ def mainGame():
 
     playerFlapAccv = -8 # velocity while flapping
     playerFlapped = False # It is true only when the bird is flapping
+
 
     while True:
         for event in pygame.event.get():
@@ -97,6 +97,7 @@ def mainGame():
             pipeMidPos = pipe['x'] + GAME_SPRITES['pipe'][0].get_width()/2
             if pipeMidPos<= playerMidPos < pipeMidPos +4:
                 score +=1
+                print(f"Your score is {score}") 
                 GAME_SOUNDS['point'].play()
 
 
@@ -145,7 +146,7 @@ def mainGame():
         FPSCLOCK.tick(FPS)
 
 def isCollide(playerx, playery, upperPipes, lowerPipes):
-    if playery> GROUNDY -25 or playery<0:
+    if playery> GROUNDY - 25  or playery<0:
         GAME_SOUNDS['hit'].play()
         return True
     
@@ -169,7 +170,7 @@ def getRandomPipe():
     pipeHeight = GAME_SPRITES['pipe'][0].get_height()
     offset = SCREENHEIGHT/3
     y2 = offset + random.randrange(0, int(SCREENHEIGHT - GAME_SPRITES['base'].get_height()  - 1.2 *offset))
-    pipeX = 100
+    pipeX = SCREENWIDTH + 10
     y1 = pipeHeight - y2 + offset
     pipe = [
         {'x': pipeX, 'y': -y1}, #upper Pipe
@@ -186,32 +187,32 @@ if __name__ == "__main__":
     # This will be the main point from where our game will start
     pygame.init() # Initialize all pygame's modules
     FPSCLOCK = pygame.time.Clock()
-    pygame.display.set_caption('Flappy Bird')
+    pygame.display.set_caption('Flappy Bird by CodeWithHarry')
     GAME_SPRITES['numbers'] = ( 
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/0.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/1.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/2.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/3.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/4.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/5.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/6.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/7.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/8.png').convert_alpha(),
-        pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/9.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/0.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/1.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/2.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/3.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/4.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/5.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/6.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/7.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/8.png').convert_alpha(),
+        pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/9.png').convert_alpha(),
     )
 
-    GAME_SPRITES['message'] =pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/message1.png').convert_alpha()
-    GAME_SPRITES['base'] =pygame.image.load('/home/ansh/Desktop/python_tests/flappy/gallery/sprites/base.png').convert_alpha()
+    GAME_SPRITES['message'] =pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/message1.png').convert_alpha()
+    GAME_SPRITES['base'] =pygame.image.load('/home/ansh/Desktop/python_experiments/flappy/gallery/sprites/base.png').convert_alpha()
     GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), 
     pygame.image.load(PIPE).convert_alpha()
     )
 
     # Game sounds
-    GAME_SOUNDS['die'] = pygame.mixer.Sound('/home/ansh/Desktop/python_tests/flappy/gallery/audio/die.wav')
-    GAME_SOUNDS['hit'] = pygame.mixer.Sound('/home/ansh/Desktop/python_tests/flappy/gallery/audio/hit.wav')
-    GAME_SOUNDS['point'] = pygame.mixer.Sound('/home/ansh/Desktop/python_tests/flappy/gallery/audio/point.wav')
-    GAME_SOUNDS['swoosh'] = pygame.mixer.Sound('/home/ansh/Desktop/python_tests/flappy/gallery/audio/swoosh.wav')
-    GAME_SOUNDS['wing'] = pygame.mixer.Sound('/home/ansh/Desktop/python_tests/flappy/gallery/audio/wing.wav')
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('/home/ansh/Desktop/python_experiments/flappy/gallery/audio/die.wav')
+    GAME_SOUNDS['hit'] = pygame.mixer.Sound('/home/ansh/Desktop/python_experiments/flappy/gallery/audio/hit.wav')
+    GAME_SOUNDS['point'] = pygame.mixer.Sound('/home/ansh/Desktop/python_experiments/flappy/gallery/audio/point.wav')
+    GAME_SOUNDS['swoosh'] = pygame.mixer.Sound('/home/ansh/Desktop/python_experiments/flappy/gallery/audio/swoosh.wav')
+    GAME_SOUNDS['wing'] = pygame.mixer.Sound('/home/ansh/Desktop/python_experiments/flappy/gallery/audio/wing.wav')
 
     GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
     GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
