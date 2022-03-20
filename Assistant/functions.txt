@@ -1,0 +1,6 @@
+Here are some functions of this Assistant:
+Type:
+1. "whap" for whatsapp message
+2. "search" to perform google search
+3. "app" to open any app on this system
+4. "youtube" to play video on youtube
