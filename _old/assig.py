@@ -1,6 +1,6 @@
 # question1
 
-# n= int(input("till where you wanna take your numbers: "))
+# n= int(input("num: "))
 # a=0
 # while a!=n:
 #     a=a+1
@@ -51,12 +51,14 @@
 # n=int(input("enter, till where you wanna take your series: "))
 # a=1
 # b=0
+# sum=0
 # while a<=n:
 #     b=b+1
 #     print(a, end=" ")
+#     sum+=a
 #     a=a+b
 #     c=a
-
+# print('\nsum is' , sum)
 
 
 # question6
@@ -79,7 +81,7 @@
 
 # n=int(input("enter number: "))
 # m=int(input("enter power: "))
-# print("number raised is",(n**m)-n)
+# print("number raised is",n**m)
 
 
 
@@ -99,13 +101,12 @@
 
 # lisT=[]
 # n=int(input("how many numbers should be in your list: "))
+# m=n
 # print("numns: ",end='')
 # for i in range(0,n):
 #     num=int(input())
-#     lisT.append(num)   
-# lis=lisT
-# print("maximum number is",lis)
-
+#     lisT.append(num)
+# print(max("Largest number is",lisT))
 
 
 # question10
@@ -138,50 +139,42 @@
 
 # question12
 
-# n=int(input("enter your number: "))
-# print("your reversed idgit is",end=" ")
-# while n!=0:
-#     dig=n%10
-#     print(dig,end='')
-#     n=n//10
+# n=int(input("num: "))
+# n=str(n)
+# n=n[::-1]
+# print(n)
 
 
 
 # question13
 
-# n=int(input("enter your number: "))
+# n=int(input("num: "))
 # m=n
-# reverse=0
-# while n!=0:
-#     dig=n%10
-#     reverse= reverse*10+dig
-#     n=n//10
-# print(reverse)
-# if reverse==m:
-#     print("its a palindrome")
+# n=str(n)
+# n=n[::-1]
+# n=int(n)
+# if n==m:
+#     print("its palindrome")
 # else:
-#     print("its not a palindrome")
+#     print("its not palindrome")
 
 
 
 # question14
 
-# n=int(input("time where you wanna take your fabonacci table: "))
-# a=0
-# b=1
-# c=1
-# print(a,end=" ")
-# while c<=n:
-#     print(c, end=" ")
-#     c=a+b
-#     a=b
-#     b=c
+n=int(input("num: "))
+a,b,c=0,1,1
+print(a,end=" ")
+while c<=n:
+    print(c, end=" ")
+    c=a+b
+    a,b=b,c
 
 
 
 # question15
 
-# yet to do
+
 
 
 
@@ -212,9 +205,9 @@
 
 # question19
 
-for j in range(1,101):
-    for i in range(2,j):
-        if j%i==0:
-            pass
-        else:
-            print(i)
+# for j in range(1,101):
+#     for i in range(2,j):
+#         if j%i==0:
+#             pass
+#         else:
+#             print(i)

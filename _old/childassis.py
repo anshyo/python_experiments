@@ -13,6 +13,7 @@ print("")
 print("________________________________________________________________________________________________________________")
 print("what do you want to open :")
 print("1. \"l\" for link")
+print("1. \"q\" for close this app")
 print("2. \"a\" for apps")
 a=input("write \"l\" or \"a\": \n")
 print("________________________________________________________________________________________________________________")
@@ -27,6 +28,8 @@ def open_apps():
     b=input('write here:')
     if b=="c":
         subprocess.call("calc.exe")
+    elif b == 'q':
+        quit()
     elif b=="note":
         subprocess.call("notepad.exe")
     elif b=="cmd":
@@ -47,6 +50,8 @@ def open_links():
         b=input("write here:")
         if b=="g":
             webbrowser.open("https://www.google.co.in/")
+        elif b == 'q':
+            quit()
         elif b=="y":
             webbrowser.open("https://www.youtube.com/")
         elif b=="w":
@@ -63,9 +68,11 @@ def open_links():
 
 def cycle():
     if a=="l":
-        open_links()      
+        open_links()     
     if a=="a":
         open_apps()
+    elif a == 'q':
+        quit() 
     else:
         print("Invalid")
 
