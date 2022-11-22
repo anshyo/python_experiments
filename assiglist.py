@@ -43,9 +43,23 @@
 
 # ques6
 
-# a = eval(input("list :"))
-# print(sorted(a))
-
+# a = [(2,1) , (1,2) , (2,5) , (4,4) , (2,3)]
+# e = []
+# for i in a:
+#     x = []
+#     x.append(i[-1])
+#     m = i[0:len(i)-1]
+#     x += m
+#     e.append((x))
+# e = sorted(e)
+# f = []
+# for i in e:
+#     x = []
+#     x.append(i[-1])
+#     m = i[0:len(i)-1]
+#     x += m
+#     f.append(tuple(x))
+# print(f)
 
 
 # ques 7
@@ -186,5 +200,16 @@
 
 
 
-#ques 18
+# list input
 
+d = {}
+while True:
+    m = input("Enter employment salary with space(if not , enter 'n' or 'N'): ")
+    m = m.split(" ")
+    d[m[0]] = m[1]
+    x = input("want to add more?(Y/N) : ")
+    if "N" or "n" in x:
+        break
+    else:
+        continue
+print(d)
