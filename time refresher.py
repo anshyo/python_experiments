@@ -1,9 +1,18 @@
-from datetime import datetime
-import time
-
-now = datetime.now()
-
+from datetime import datetime 
+import time 
 while True:
-    timee = now.time("%H:%M:%S")
-    print(timee)
+    print(str(datetime.now())[11:19] , end = '\r')
     time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+

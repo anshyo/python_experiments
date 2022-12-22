@@ -1,17 +1,17 @@
 # question1
 
-n= int(input("till where you wanna take your numbers: "))
-a=0
-while a!=n:
-    a=a+1
-    print(a, end=" ")
-a=0
-b=a   
-while b!=n:
-    b=b+1
-    a=a+b
-print("\nsum of all those numbers are",a)
-print("average of all those numbers are",a/n)
+# n= int(input("till where you wanna take your numbers: "))
+# a=0
+# while a!=n:
+#     a=a+1
+#     print(a, end=" ")
+# a=0
+# b=a   
+# while b!=n:
+#     b=b+1
+#     a=a+b
+# print("\nsum of all those numbers are",a)
+# print("average of all those numbers are",a/n)
 
 
 

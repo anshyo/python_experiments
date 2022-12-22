@@ -1,17 +1,17 @@
 # question1
 
-# n= int(input("num: "))
-# a=0
-# while a!=n:
-#     a=a+1
-#     print(a, end=" ")
-# a=0
-# b=a   
-# while b!=n:
-#     b=b+1
-#     a=a+b
-# print("\nsum of all those numbers are",a)
-# print("average of all those numbers are",a/n)
+n= int(input("num: "))
+a=0
+while a!=n:
+    a=a+1
+    print(a, end=" ")
+a=0
+b=a   
+while b!=n:
+    b=b+1
+    a=a+b
+print("\nsum of all those numbers are",a)
+print("average of all those numbers are",a/n)
 
 
 
@@ -162,13 +162,13 @@
 
 # question14
 
-n=int(input("num: "))
-a,b,c=0,1,1
-print(a,end=" ")
-while c<=n:
-    print(c, end=" ")
-    c=a+b
-    a,b=b,c
+# n=int(input("num: "))
+# a,b,c=0,1,1
+# print(a,end=" ")
+# while c<=n:
+#     print(c, end=" ")
+#     c=a+b
+#     a,b=b,c
 
 
 

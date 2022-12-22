@@ -32,12 +32,8 @@
 # ques5
 
 # l = (input("enter elements separated with commas: "))
-# l = l.split(",")
-# c = 0
-# for i in l:
-#     if i[0] == i[-1] and len(i) >= 2:
-#         c += 0
-# print(c)
+# l = l.split()
+# print(len(l))
 
 
 
@@ -160,7 +156,6 @@
 # ques15
 
 # import random
-
 # a = [1,443,5,54,56,65,56,65,65,655,5]
 # b = []
 # c = 0 
@@ -194,7 +189,7 @@
 # a = []
 # for i in range(31):
 #     a.append(i**2)
-# print(a[6:31])
+# print(a[6:15])
 
 
 
@@ -202,14 +197,14 @@
 
 # list input
 
-d = {}
-while True:
-    m = input("Enter employment salary with space(if not , enter 'n' or 'N'): ")
-    m = m.split(" ")
-    d[m[0]] = m[1]
-    x = input("want to add more?(Y/N) : ")
-    if "N" or "n" in x:
-        break
-    else:
-        continue
-print(d)
+# d = {}
+# while True:
+#     m = input("Enter employment salary with space(if not , enter 'n' or 'N'): ")
+#     m = m.split(" ")
+#     d[m[0]] = m[1]
+#     x = input("want to add more?(Y/N) : ")
+#     if "N" or "n" in x:
+#         break
+#     else:
+#         continue
+# print(d)
