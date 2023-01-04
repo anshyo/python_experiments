@@ -33,14 +33,14 @@ def func_commenter(start):
     func_file.close() 
 
 def reset():
-    reset_file = open('mutable A.I\_reset.txt' , 'r')
+    reset_file = open('mutable A.I\data.txt' , 'r')
     reset_content = ''
     for line in reset_file:
         reset_content += line
     reset_file.close()
-    reset_file1 = open('mutable A.I\_func.txt' , 'w')
-    reset_file1.write(reset_content) 
-    reset_file1.close()
+    reset_file = open('mutable A.I\data.txt' , 'w')
+    reset_file.write(reset_content) 
+    reset_file.close()
 
 def reset_file_writer():
     func_content = ''
@@ -48,9 +48,9 @@ def reset_file_writer():
     for line in func_file:
         func_content += line
     func_file.close()
-    func_file1 = open('mutable A.I\_reset.txt' , 'w')
-    func_file1.write(func_content)
-    func_file1.close() 
+    func_file = open('mutable A.I\_reset.txt' , 'w')
+    func_file.write(func_content)
+    func_file.close() 
 
 # def func_line_insert():
 
@@ -76,16 +76,17 @@ def commenter_line_saver():
     func_file.write(func_content)
     func_file.close() 
 
-def name():
+def welcome():
+    global name
     name = input('what is your name? : ')
     print(f'hey {name} , i am cura')
-    func_editor('{name}' , f'{name}')
+    func_editor('ansh' , f'{name}')
 
 def run():
     reset_file_writer()
     commenter_line_saver()
-    name()
-    func_commenter("func_editor('{name}' ")
+    welcome()
+    func_commenter("func_editor('ansh")
     func_commenter("name = input(")
     func_commenter("data_editor(f'")
     func_commenter("    commenter_line_saver()")
