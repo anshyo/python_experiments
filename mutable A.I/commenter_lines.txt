@@ -1,5 +1,0 @@
-    func_commenter("func_editor('{name}' ")
-    func_commenter("name = input(")
-    func_commenter("data_editor(f'")
-    func_commenter("    commenter_line_saver()")
-    func_commenter("    reset_file_writer()")
